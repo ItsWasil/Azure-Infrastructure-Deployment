@@ -1,9 +1,10 @@
-# Azure Infrastructure Deployment and Network Security
+# Azure Load Balancer Configuration and Network Traffic Management
 
-## Azure Administrator Capstone Project
+## Microsoft Azure Administrator Capstone Project
 
 **Cloud Platform:** Microsoft Azure  
-**Project Type:** Cloud Infrastructure Administration  
+**Project Category:** Cloud Infrastructure Administration  
+**Project Level:** Beginner  
 **Region:** Central India  
 **Resource Group:** RG-CloudTech-Lab
 
@@ -11,37 +12,42 @@
 
 ## 1. Project Overview
 
-This project demonstrates practical exposure to Microsoft Azure infrastructure administration and load-balancing configuration.
+This project demonstrates hands-on experience with Microsoft Azure infrastructure administration, focusing on Azure Load Balancer configuration and network traffic management.
 
-The project focuses on configuring an Azure Standard Load Balancer, creating a backend pool, configuring an HTTP health probe, and associating the components through a load-balancing rule.
+The project involves configuring a Standard Azure Load Balancer, creating a backend pool, setting up an HTTP health probe, and configuring a load-balancing rule.
 
-The objective is to understand how Azure Load Balancer components work together to manage network traffic and monitor backend endpoint health.
+The primary objective is to understand how Azure Load Balancer components work together to manage incoming network traffic and monitor backend endpoint health.
 
 ## 2. Project Objectives
 
-- Understand Azure Load Balancer configuration.
-- Explore backend pool management.
+- Understand Azure Load Balancer architecture and functionality.
+- Configure a Standard SKU Azure Load Balancer.
+- Create and manage backend pools.
 - Configure HTTP health probes.
-- Configure TCP load-balancing rules.
+- Implement TCP load-balancing rules.
 - Understand frontend-to-backend traffic mapping.
-- Document Azure infrastructure configuration.
-- Understand backend health monitoring.
+- Learn backend health monitoring concepts.
+- Gain practical exposure to Azure networking administration.
 
-## 3. Technologies Used
+## 3. Technologies and Services Used
 
 | Technology | Purpose |
 |---|---|
-| Microsoft Azure | Cloud platform |
+| Microsoft Azure | Cloud infrastructure platform |
 | Azure Load Balancer | Network traffic distribution |
 | Backend Pools | Backend resource grouping |
 | Health Probes | Backend health monitoring |
-| Load Balancing Rules | Traffic forwarding |
+| Load Balancing Rules | Traffic forwarding configuration |
 | HTTP | Health probe protocol |
-| TCP | Load balancing protocol |
+| TCP | Load-balancing rule protocol |
 
-## 4. Infrastructure Details
+## 4. Azure Infrastructure Configuration
 
-### Azure Load Balancer
+### 4.1 Azure Load Balancer
+
+Configured a Standard SKU Azure Load Balancer named `LB-Web`.
+
+**Configuration:**
 
 - Name: LB-Web
 - Resource Group: RG-CloudTech-Lab
@@ -49,78 +55,100 @@ The objective is to understand how Azure Load Balancer components work together 
 - SKU: Standard
 - Tier: Regional
 
-### Backend Pool
+### 4.2 Backend Pool Configuration
 
-- Name: Backendpool-Web
-- Purpose: Groups backend resources associated with the load balancer.
+Created a backend pool named `Backendpool-Web`.
 
-### Health Probe
+**Purpose:**
 
-- Name: health1
-- Protocol: HTTP
-- Port: 80
-- Path: /
-- Interval: 5 seconds
+- Groups backend resources associated with the load balancer.
+- Provides backend targets for load-balancing rules.
+- Supports network traffic distribution across configured resources.
 
-The health probe checks the configured backend endpoint to help determine whether backend instances are healthy.
+### 4.3 Health Probe Configuration
 
-### Load Balancing Rule
+Created an HTTP health probe named `health1`.
 
-- Name: Rule-HTTP
-- Protocol: TCP
-- Port: 80
-- Backend Pool: Backendpool-Web
-- Health Probe: health1
+**Configuration:**
 
-The rule associates the frontend traffic configuration with the backend pool and health probe.
+| Setting | Value |
+|---|---|
+| Name | health1 |
+| Protocol | HTTP |
+| Port | 80 |
+| Path | / |
+| Interval | 5 seconds |
 
-## 5. Implementation Screenshots
+**Purpose:**
 
-### 5.1 Load Balancer Overview
+The health probe checks the configured backend endpoint and helps Azure Load Balancer determine whether backend instances are healthy enough to receive new connections.
 
-![Load Balancer Overview](screenshots/01-load-balancer-overview.png)
+### 4.4 Load Balancing Rule Configuration
 
-Shows the Azure Load Balancer resource and its configuration overview.
+Configured a load-balancing rule named `Rule-HTTP`.
 
-### 5.2 Health Probe List
+**Configuration:**
 
-![Health Probe List](screenshots/02-health-probe-list.png)
+| Setting | Value |
+|---|---|
+| Rule Name | Rule-HTTP |
+| Protocol | TCP |
+| Port | 80 |
+| Backend Pool | Backendpool-Web |
+| Health Probe | health1 |
 
-Shows the health probe configured for LB-Web.
+**Purpose:**
 
-### 5.3 Health Probe Configuration
+The load-balancing rule defines how incoming frontend traffic is mapped to the configured backend pool.
 
-![Health Probe Configuration](screenshots/03-health-probe-configuration.png)
+## 5. Project Implementation
 
-Shows the HTTP health probe settings, including port 80, path `/`, and a five-second interval.
+The project involved the following configuration activities:
 
-### 5.4 Backend Pool
-
-![Backend Pool](screenshots/04-backend-pool.png)
-
-Shows the Backendpool-Web configuration.
-
-### 5.5 Additional Implementation Evidence
-
-Refer to the remaining screenshots in the screenshots folder for additional project configuration.
+1. Created and organized Azure infrastructure resources within a resource group.
+2. Configured a Standard Azure Load Balancer.
+3. Created a backend pool named Backendpool-Web.
+4. Configured an HTTP health probe using port 80.
+5. Set the health probe path to `/`.
+6. Configured a five-second health probe interval.
+7. Created a TCP load-balancing rule named Rule-HTTP.
+8. Associated the load-balancing rule with the backend pool and health probe.
 
 ## 6. Key Learning Outcomes
 
-- Azure Load Balancer administration.
-- Backend pool configuration.
-- HTTP health probe configuration.
-- TCP networking fundamentals.
+Through this project, I gained practical exposure to:
+
+- Microsoft Azure infrastructure administration.
+- Azure Load Balancer configuration.
+- Backend pool management.
+- Health probe configuration and monitoring.
+- TCP and HTTP networking fundamentals.
 - Load-balancing rule configuration.
-- Cloud infrastructure documentation.
+- Cloud networking concepts.
+- Azure resource organization and management.
 
-## 7. Conclusion
+## 7. Security Considerations
 
-This project provided practical exposure to Azure Load Balancer configuration and cloud networking concepts.
+Important security considerations for Azure infrastructure include:
 
-It helped strengthen my understanding of backend pools, health probes, load-balancing rules, and Azure infrastructure administration.
+- Restricting unnecessary inbound network traffic.
+- Using Network Security Groups where applicable.
+- Avoiding unrestricted administrative access.
+- Reviewing backend resource exposure.
+- Protecting Azure credentials and subscription information.
+- Following the principle of least privilege.
+
+## 8. Conclusion
+
+This capstone project provided practical exposure to Microsoft Azure Load Balancer administration and networking concepts.
+
+By configuring backend pools, health probes and load-balancing rules, I developed a better understanding of how Azure manages network traffic and monitors backend endpoint health.
+
+This project strengthened my foundational knowledge of cloud infrastructure administration and helped me apply concepts covered in the Microsoft Azure Administrator (AZ-104) training.
 
 ---
 
-**Project Category:** Microsoft Azure Administration  
-**Project Level:** Beginner / Capstone  
-**Documentation:** Maintained using GitHub
+**Project:** Azure Load Balancer Configuration and Network Traffic Management  
+**Platform:** Microsoft Azure  
+**Certification Preparation:** AZ-104 – Azure Administrator Associate  
+**Documentation:** GitHub
